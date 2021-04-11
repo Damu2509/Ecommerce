@@ -9,11 +9,9 @@ from django.forms import forms
 
 
 def product_detail_view(request):
-    return render(request, 'product/product_detail.html', {'name':'ecommerce'})
-
-
-class ProductForm():
-    model = Products
-    obj = Products.objects.all()
-    fields = ['title','description','type']
-    return render(request, 'product/form.html', {'obj':obj})
+    
+    obj = Products.objects.get(id = 1)
+    context = {
+        'object' : obj 
+    }
+    return render(request, 'product/product_detail.html', context)
