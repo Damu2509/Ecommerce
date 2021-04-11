@@ -15,7 +15,6 @@ def raw_create_view(request):
 
     my_form = RawProductForm()
 
-
     if request.method == "POST":
 
       my_form = RawProductForm(request.POST or None)
@@ -23,7 +22,6 @@ def raw_create_view(request):
       if my_form.is_valid():
           Products.objects.create(**my_form.cleaned_data)
           my_form = RawProductForm()
-
 
     context = {
       'form' : my_form,
