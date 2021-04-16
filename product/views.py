@@ -77,3 +77,19 @@ def product_list_view(request):
     }
 
     return render(request, 'product/product_list.html', context)
+
+
+from django.views.generic import (ListView,DetailView)
+from .models import Products
+
+class ProductListView(ListView):
+    queryset = Products.objects.all()
+    template_name = 'product/product_list.html'
+
+class ProductDetailView(DetailView):
+    queryset = Products.objects.all()
+    template_name = 'product/product_detail.html'
+
+    def get_object(self):
+        id_ = self.kwargs.get("id")
+        return get_object_or_404(Products, id = id_)

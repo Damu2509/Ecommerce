@@ -4,7 +4,12 @@ from .views import(
     product_create_view,
     raw_create_view,
     product_delete_view,
-    product_list_view)
+    product_list_view,
+    
+    ProductListView,
+    ProductDetailView,)
+
+app_name = 'product'
 
 urlpatterns = [ 
     path('detail/<int:id>/', product_detail_view, name = 'detail'),
@@ -13,6 +18,11 @@ urlpatterns = [
 
     path('delete/<int:id>/', product_delete_view, name = 'delete-view'),
     path('list/', product_list_view, name = 'list-view'),
+
+
+
+    path('classview/', ProductListView.as_view(), name = 'ProductListViews'),
+    path('detailview/<int:id>/', ProductDetailView.as_view(), name = 'ProductDetailViews'),
 
 
 
