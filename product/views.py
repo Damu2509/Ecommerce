@@ -1,4 +1,4 @@
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render,get_object_or_404,redirect
 
 from django.http import HttpResponse
 
@@ -44,10 +44,28 @@ def product_create_view(request):
 
     return render(request, 'product/product_create.html', context)
 
-def product_detail_view(request):
+def product_detail_view(request,id):
     
-    obj = Products.objects.get(id = 1)
+    obj = Products.objects.get(id = id)
     context = {
         'object' : obj 
     }
     return render(request, 'product/product_detail.html', context)
+
+def product_delete_view(request,id):
+    
+    obj = Products.objects.get(id = id)
+
+    form = ProductForm(request.POST)
+    context = {
+        'object' : obj 
+    }
+    if request.method == 'POST':
+       obj.delete()
+       return redirect('../../')
+
+    
+
+
+    
+    return render(request, 'product/product_delete.html', context)

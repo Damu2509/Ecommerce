@@ -1,0 +1,11 @@
+{% include 'product/base.html' %}
+{% block content%}
+    <form method = 'POST'>{% csrf_token %}
+        <h1> Do you want to delete the product "{{ object.title }}"</h1>
+        <input type='submit' value = 'delete'>
+        <a href='../'>Cancel</a>
+
+
+    </form>
+
+{% endblock content %}
