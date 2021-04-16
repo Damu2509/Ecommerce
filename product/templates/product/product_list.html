@@ -1,0 +1,15 @@
+{% include 'product/base.html' %}
+
+
+<h1> this is some type of weirdness</h1>
+
+
+{% block productlist %}
+
+    {% for i in object %}
+     <li >  <a href = "{{ i.get_absolute_url1 }}">  {{ i.id }} - {{ i.title }}  </a>     </li>
+    
+
+    {% endfor %}
+
+{% endblock productlist %}

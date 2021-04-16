@@ -10,7 +10,6 @@ from django.forms import forms
 from .forms import ProductForm, RawProductForm
 
 
-
 def raw_create_view(request):
 
     my_form = RawProductForm()
@@ -60,12 +59,21 @@ def product_delete_view(request,id):
     context = {
         'object' : obj 
     }
+
     if request.method == 'POST':
        obj.delete()
        return redirect('../../')
-
-    
-
-
     
     return render(request, 'product/product_delete.html', context)
+
+
+def product_list_view(request):
+    lists = Products.objects.all()
+
+    form = ProductForm(request.POST)
+
+    context = {
+        'object' : lists
+    }
+
+    return render(request, 'product/product_list.html', context)
