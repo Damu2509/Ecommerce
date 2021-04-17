@@ -100,17 +100,15 @@ class ProductListView(ListView):
         return render(request, 'product/product_list.html', context)
 
 class ProductDetailView(DetailView):
+    
     queryset = Products.objects.all()
 
     template_name = 'product/product_detail.html'
 
-    context = {
-        'objects' : queryset
-    }
-
-
     def get_object(self):
-        id_ = self.kwargs.get("id")
-        #return get_object_or_404(Products, id = id_)
-        return request(request, 'product/product_list.html', context)
+
+        id1 = self.kwargs.get("id") 
+
+        return get_object_or_404(Products, id =id1 )
+
 

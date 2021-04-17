@@ -8,7 +8,7 @@
 
    {% for i in object_list %}
     
-     <li > <a href ="{% 'detail' %}" >  {{ i.title }} </a> </li> <br>
+     <li > <a href ="{% url 'detail' object.id %}"  >  {{ i.title }} </a> </li> <br>
 
     {% endfor %}
 
