@@ -27,8 +27,6 @@ class RawProductForm(forms.Form):
 
     initial1 = 'This is my phone'
 
-
-
     title       = forms.CharField(widget = forms.TextInput(attrs = {'placeholder':'please enter your title here'}))
     description = forms.CharField(widget = forms.Textarea(attrs={'class':'new-class',"rows":15,'cols':25}))
     price       =  forms.DecimalField(initial = 00)

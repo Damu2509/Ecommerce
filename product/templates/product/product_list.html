@@ -6,9 +6,9 @@
 
 {% block productlist %}
 
-    {% for i in object %}
-     <li >  <a href = "{{ i.get_absolute_url }}">  {{ i.id }} - {{ i.title }}  </a>     </li>
+   {% for i in object_list %}
     
+     <li > <a href ="{% 'detail' %}" >  {{ i.title }} </a> </li> <br>
 
     {% endfor %}
 
