@@ -81,9 +81,10 @@ def product_list_view(request):
 
 
 
-from django.views.generic import (ListView,DetailView,UpdateView,CreateView)
+from django.views.generic import (ListView,DetailView,UpdateView,CreateView,DeleteView)
 from .models import Products
 from .forms import ProductForm
+from django.urls import reverse
 
 class ProductListView(ListView):
     queryset = Products.objects.all()
@@ -113,9 +114,28 @@ class ProductCreateView(CreateView):
 
     form_class = ProductForm
 
-    a = Products.objects.all() 
-
     template_name = 'product/product_create.html'
+
+    def form_valid(self, form):
+        print(form.cleaned_data)
+        return super().from_valid(form)
+
+
+
+class ProductDeleteView(DeleteView):
+    
+    queryset = Products.objects.all()
+
+    template_name = 'product/product_delete.html'
+
+    def get_object(self):
+
+        id1 = self.kwargs.get("id") 
+
+        return get_object_or_404(Products, id =id1 )
+
+    def get_success_url(self):
+        return reverse("product:ProductListViews")
 
 
 
