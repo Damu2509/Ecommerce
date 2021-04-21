@@ -1,14 +1,14 @@
 {% include 'product/base.html' %}
 
 
-<h1> this is some type of weirdness</h1>
+<h1> This is under the class based ListView</h1>
 
 
 {% block productlist %}
 
    {% for i in object_list %}
     
-     <li > <a href ="{% url 'detail' object.id %}"  >  {{ i.title }} </a> </li> <br>
+      {{ forloop.counter }} - {{ i.title }}   <br> 
 
     {% endfor %}
 

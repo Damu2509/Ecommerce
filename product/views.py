@@ -79,29 +79,23 @@ def product_list_view(request):
     return render(request, 'product/product_list.html', context)
 
 
-from django.views.generic import (ListView,DetailView)
+
+
+from django.views.generic import (ListView,DetailView,UpdateView,CreateView)
 from .models import Products
+from .forms import ProductForm
 
 class ProductListView(ListView):
     queryset = Products.objects.all()
     template_name = 'product/product_list.html'
 
-    context = {
-        'objects' : queryset
-    }
-
-    def get_object(self,request):
-        id_ = self.kwargs.get("id")
-        #return get_object_or_404(Products, id = id_)
-
-        context = {
-        'objects' : Products.objects.all()
-    }
-        return render(request, 'product/product_list.html', context)
+  
 
 class ProductDetailView(DetailView):
     
     queryset = Products.objects.all()
+
+    a = Products.objects.all() 
 
     template_name = 'product/product_detail.html'
 
@@ -110,5 +104,18 @@ class ProductDetailView(DetailView):
         id1 = self.kwargs.get("id") 
 
         return get_object_or_404(Products, id =id1 )
+
+
+
+class ProductCreateView(CreateView):
+    
+    queryset = Products.objects.all()
+
+    form_class = ProductForm
+
+    a = Products.objects.all() 
+
+    template_name = 'product/product_create.html'
+
 
 

@@ -7,7 +7,8 @@ from .views import(
     product_list_view,
     
     ProductListView,
-    ProductDetailView,)
+    ProductDetailView,
+    ProductCreateView)
 
 app_name = 'product'
 
@@ -23,7 +24,7 @@ urlpatterns = [
 
     path('classview/', ProductListView.as_view(), name = 'ProductListViews'),
     path('detailview/<int:id>/', ProductDetailView.as_view(), name = 'ProductDetailViews'),
-
+    path('createview/', ProductCreateView.as_view(), name = 'ProductCreateViews'),
 
 
 ]
