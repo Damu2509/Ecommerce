@@ -91,7 +91,6 @@ class ProductListView(ListView):
     template_name = 'product/product_list.html'
 
   
-
 class ProductDetailView(DetailView):
     
     queryset = Products.objects.all()
@@ -139,3 +138,11 @@ class ProductDeleteView(DeleteView):
 
 
 
+from django.views import View
+
+class functionbasedview(ListView):
+    template_name = 'product_detail.html'
+
+    def get(self, request):
+        
+        return render(request, self.template_name, {})
