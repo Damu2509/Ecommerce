@@ -6,7 +6,9 @@ from .views import(
     product_delete_view,
     product_list_view,
 
-    functionbasedview,
+    functiondetailview,
+    ProductRawList,
+    Inherited,
     
     ProductListView,
     ProductDetailView,
@@ -29,7 +31,10 @@ urlpatterns = [
     path('detailview/<int:id>/', ProductDetailView.as_view(), name = 'ProductDetailViews'),
     path('createview/', ProductCreateView.as_view(), name = 'ProductCreateViews'),
     path('deleteview/<int:id>/', ProductDeleteView.as_view(), name = 'ProductDeleteViews'),
-    path('functionview/', functionbasedview.as_view(template_name = 'product/base.html'), name = 'functionbasediews'),
+    path('<int:id>/', functiondetailview.as_view(template_name = 'product/product_detail.html'), name = 'functionbasediews'),
+    path('raw/', ProductRawList.as_view(template_name = 'product/product_list.html'), name = 'functionbasediews'),
+    path('inherited/', Inherited.as_view(), name = 'ProductListViews'),
+
 
 
 

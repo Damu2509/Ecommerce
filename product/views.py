@@ -140,9 +140,27 @@ class ProductDeleteView(DeleteView):
 
 from django.views import View
 
-class functionbasedview(ListView):
-    template_name = 'product_detail.html'
+class functiondetailview(View):
+    template_name = 'product/product_list.html'
 
-    def get(self, request):
-        
-        return render(request, self.template_name, {})
+    def get(self, request, id=None, *args, **kwargs):
+
+        context = {}
+
+        if id is not None:
+            obj = get_object_or_404(Products, id = id)
+            context['object'] = obj
+
+        return render(request, self.template_name, context)
+
+class ProductRawList(View):
+
+    template_name = 'product/product_list.html'
+    queryset = Products.objects.all()
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name, {'object_list' : self.queryset})
+
+class Inherited(ProductRawList):
+    queryset = Products.objects.filter(id = 1)
+    
