@@ -9,7 +9,9 @@ from .views import(
     functiondetailview,
     ProductRawList,
     Inherited,
-    
+    RawClassCreateForm,
+    RawUpdateView,
+
     ProductListView,
     ProductDetailView,
     ProductCreateView,
@@ -34,6 +36,10 @@ urlpatterns = [
     path('<int:id>/', functiondetailview.as_view(template_name = 'product/product_detail.html'), name = 'functionbasediews'),
     path('raw/', ProductRawList.as_view(template_name = 'product/product_list.html'), name = 'functionbasediews'),
     path('inherited/', Inherited.as_view(), name = 'ProductListViews'),
+    path('rawclass/', RawClassCreateForm.as_view(), name = 'rawclassbasedviews'),
+    path('rawupdate/<int:id>/', RawUpdateView.as_view(), name = 'rawupdateviews'),
+
+
 
 
 

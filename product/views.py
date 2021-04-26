@@ -117,7 +117,7 @@ class ProductCreateView(CreateView):
 
     def form_valid(self, form):
         print(form.cleaned_data)
-        return super().from_valid(form)
+        return super().form_valid(form)
 
 
 
@@ -164,3 +164,68 @@ class ProductRawList(View):
 class Inherited(ProductRawList):
     queryset = Products.objects.filter(id = 1)
     
+class RawClassCreateForm(View):
+
+    template_name = 'product/product_create.html'
+
+    def get(self, request, *args, **kwargs):
+                
+        form = ProductForm()
+        context = {
+            'form': form
+        }
+
+        if form.is_valid():
+            form.save()
+            form = ProductForm()
+
+
+        return render(request, self.template_name, context)
+
+    def post(self, request, *args, **kwargs):
+
+        form = ProductForm(request.POST)
+        context = {
+            "form" : form
+        }
+        
+        if form.is_valid():
+            form.save()
+            form = ProductForm()
+
+        return render(request, self.template_name, context)
+
+
+class RawUpdateView(View):
+
+    template_name = 'product/product_update.html'
+    def get_object(self):
+        id =  self.kwargs.get('id')
+        obj = None
+        if id is not None:
+            obj = get_object_or_404(Products, id = id)
+            #context['object'] = obj
+        return obj
+
+    def get(self, request, id =None,  *args, **kwargs):
+        id =  self.kwargs.get('id')
+        obj = self.get_object()
+        context = {}
+        if obj is not None:
+           form = ProductForm(instance = obj)
+           context['object'] = obj
+           context['form'] = form
+        return render(request, self.template_name, context)
+
+    
+    def post(self, request, id =None,  *args, **kwargs):
+        id =  self.kwargs.get('id')
+        obj = self.get_object()
+        context = {}
+        if obj is not None:
+           form = ProductForm(request.POST, instance = obj)
+           if form.is_valid():
+               form.save()
+           context['object'] = obj
+           context['form'] = form
+        return render(request, self.template_name, context)
