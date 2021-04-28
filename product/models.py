@@ -1,16 +1,33 @@
 from django.db import models
+from django.conf import settings
 
-from django.urls import reverse
 
-class Products(models.Model):
+class Item(models.Model):
 
-    title       = models.TextField(max_length = 100)
-    type        = models.CharField(max_length = 50)
-    description = models.TextField(max_length = 200)
-    price       = models.DecimalField(decimal_places = 2,max_digits = 7,default = 0.00)
+    title = models.CharField(max_length = 100)
+    price  = models.FloatField()
 
-    def get_absolute_url(self):
-        return reverse("product:detail", kwargs = {'id': self.id })
+    def __str__(self):
+        return self.title
+
+class OrderItem(models.Model):
+    
+    item = models.ForeignKey(Item, on_delete = models.CASCADE)
+
+    def __str__(self):
+        return self.title
+
+class Order(models.Model):
+
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete = models.CASCADE)
+    ordered = models.BooleanField(default = False)
+    items  = models.ManyToManyField(OrderItem)
+    start_date = models.DateTimeField(auto_now_add = True)
+    ordered = models.BooleanField()
+
+    def __str__(self):
+        return self.title
+
 
    
 

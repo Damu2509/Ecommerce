@@ -1,8 +1,0 @@
-{% include 'product/base.html' %}
-
-<form action='.' method="POST">{% csrf_token %}
-  {{ form.as_ul }}
-
-  <input type = 'submit' name = 'Post'>
-
-</form>
