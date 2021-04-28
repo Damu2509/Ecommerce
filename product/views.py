@@ -12,4 +12,4 @@ def item_list(request):
         'items' : Item.objects.all()
     }
 
-    return render(request, 'product/item_list.html', context)
+    return render(request, 'product/home-page.html', context)
