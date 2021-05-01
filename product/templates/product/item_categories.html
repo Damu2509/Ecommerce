@@ -3,14 +3,11 @@
 {% load static %}
 {% block content %}
 
-
-
     {% for item in items %}
       
-      <h1>  {{ forloop.counter }} :  {{ item.category }} 
          
-      <img src="{{ item.image.url }}" alt= "this is something weird">
-      
+      <img src="{%static 'product/mine1.jpg' %}" alt= "this is something weird"  width="200" height="200"><br>
+      <h1>  {{ forloop.counter }} :  {{ item.category }} <br>
     {% endfor%}
 
 {% endblock content %} 
