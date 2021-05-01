@@ -1,0 +1,16 @@
+
+{% extends 'product/base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+    {% for item in items %}
+      
+      <h1>  {{ forloop.counter }} :  {{ item.category }} 
+         
+      <img src="{{ item.image.url }}" alt= "this is something weird">
+      
+    {% endfor%}
+
+{% endblock content %} 

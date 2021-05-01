@@ -2,14 +2,14 @@ from django.shortcuts import render, get_object_or_404,redirect
 
 from django.http import HttpResponse
 
-from .models import Item
+from .models import ItemCategories
 
 
 
-def item_list(request):
+def item_categories(request):
 
     context = {
-        'items' : Item.objects.all()
+        'items' : ItemCategories.objects.all()
     }
 
-    return render(request, 'product/home-page.html', context)
+    return render(request, 'product/item_categories.html', context)
