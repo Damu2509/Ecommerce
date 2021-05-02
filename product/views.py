@@ -1,22 +1,17 @@
 from django.shortcuts import render, get_object_or_404,redirect
 
 from django.http import HttpResponse
-from django.views.generic import DetailView
+from django.views.generic import DetailView, ListView
 
 from .models import ItemCategories, ItemDetail
 
+class CategoryList(ListView):
 
-
-def item_categories(request):
-
-    context = {
-        'items' : ItemCategories.objects.all()
-    }
-
-    return render(request, 'product/item_categories.html', context)
+    model = ItemCategories
+    template_name = 'product/item_categories.html'
 
 class ItemDetail(DetailView):
     model = ItemDetail
-    template_name = 'product/product_detail.html'
+    template_name = 'product/item_detail.html'
     
     

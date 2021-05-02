@@ -2,12 +2,47 @@
 {% extends 'product/base.html' %}
 {% load static %}
 {% block content %}
+<html>
+  <head>
+    <style>
 
-    {% for item in items %}
-      
-         
-      <img src="{%static 'product/mine1.jpg' %}" alt= "this is something weird"  width="200" height="200"><br>
-      <h1>  {{ forloop.counter }} :  {{ item.category }} <br>
-    {% endfor%}
+      .flex-container{
+    
+        display : flex;
+        flex-direction: row;
+        background-color: black;
+        width : 770px;
+
+      }
+
+      .flex-container > div {
+
+        background-color: #f1f1f1;
+        width : 370px;
+        margin : 10px ;
+        text-align : center ; 
+        line-height : 75px;
+        font-size : 30px;
+
+      }
+    </style>
+  </head>
+  <body>
+    {% for item in object_list %}
+
+      <div class = 'flex-container'>
+
+      <div><h3>  {{ forloop.counter }} :  {{ item.category }}</h3><img src="{%static 'product/mine1.jpg' %}" alt= "This image is currently unavailable " width="350" height="200">
+        <br></h2></div>
+
+    {% endfor %}
 
 {% endblock content %} 
+
+
+</div>
+</body>
+</html>
+
+
+<div></div><img class="scale-with-grid" src="{{ item.image.url }}"/>
