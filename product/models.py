@@ -6,7 +6,7 @@ from django.conf import settings
 class ItemCategories( models.Model ):
      
     category = models.CharField(max_length = 25)
-    image = models.ImageField(null = True, blank = True)
+    image = models.ImageField(upload_to = 'media/', null = True, blank = True)
 
 
 class ItemDetail(models.Model):

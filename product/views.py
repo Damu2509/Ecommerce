@@ -9,6 +9,7 @@ class CategoryList(ListView):
 
     model = ItemCategories
     template_name = 'product/item_categories.html'
+    paginate_by =1
 
 class ItemDetail(DetailView):
     model = ItemDetail
