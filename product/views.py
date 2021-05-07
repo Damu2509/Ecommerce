@@ -5,6 +5,8 @@ from django.views.generic import DetailView, ListView
 
 from .models import ItemCategories, ItemDetail
 
+from .forms import CreateNewList
+
 class CategoryList(ListView):
 
     model = ItemCategories
@@ -14,5 +16,9 @@ class CategoryList(ListView):
 class ItemDetail(DetailView):
     model = ItemDetail
     template_name = 'product/item_detail.html'
+
+def itemCreate(request):
+    form = CreateNewList()
+    return render(request, 'product/items.html', {'form':form})
     
     
