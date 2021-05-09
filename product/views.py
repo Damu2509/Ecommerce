@@ -19,7 +19,9 @@ class ItemDetail(DetailView):
 
 class Item(DetailView):
     model = Item
-    template_name = 'product/item_detail.html'
+    template_name = 'product/items.html'
+    paginate_by =1
+
 
 def itemCreate(response):
 

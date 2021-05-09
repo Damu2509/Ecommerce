@@ -24,7 +24,7 @@ class ToDoList(models.Model):
 
   def __str__(self):
 
-    return se;f.name
+    return self.name
 
 class Item(models.Model):
 
