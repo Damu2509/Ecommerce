@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404,redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views.generic import DetailView, ListView
 
-from .models import ItemCategories, ItemDetail, ToDoList, Item
+from .models import ItemCategories, ItemDetail
 
 from .forms import CreateNewList
 
@@ -18,9 +18,9 @@ class ItemDetail(DetailView):
     template_name = 'product/item_detail.html'
 
 class Item(DetailView):
-    model = Item
+    model = ItemCategories
     template_name = 'product/items.html'
-    paginate_by =1
+    paginate_by =2
 
 
 def itemCreate(response):

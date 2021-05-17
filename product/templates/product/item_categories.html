@@ -2,97 +2,13 @@
 {% extends 'product/base.html' %}
 {% load static %}
 {% block content %}
-<html>
-  <head>
-    <style>
 
-      .flex-container{
-    
-        display : flex;
-        flex-direction: column;
-        background-color: rgb(245, 238, 238);
-        width : 270px;
-
-      }
-
-
-      .flex-container > img {
-
-        background-color: #f1f1f1;
-        width : 270px;
-        margin : 10px ;
-        text-align : center ; 
-        line-height : 75px;
-        font-size : 30px;
-
-      }
-
-
-      .flex-container1{
-    
-        display : flex;
-        flex-direction: row;
-        background-color: #f1f1f1;
-        width : 270px;
-
-      }
-
-      .flex-container1 > img {
-
-        background-color: #f1f1f1;
-        width : 370px;
-        margin : 10px ;
-        text-align : left ; 
-        line-height : 75px;
-        font-size : 30px;
-
-      }
-
-    </style>
-  </head>
-  <body>
     {% for item in object_list %}
-
-      <div class = 'flex-container'>
-      
-       <div><h3>  {{ forloop.counter }} :  {{ item.category }} </h3><img src="{% static 'product/mine1.jpg' %}" alt= "This image is currently unavailable" width="250" height="200">
-        </div>  </div>      
-       
+        
+       <h3>  {{ forloop.counter }} :  {{ item.category }} </h3>
+                
     {% endfor %}
-
-
-
-    {% if is_paginated %}
-    {% if page_obj.has_previous %}
-       <a class="btn btn-outline-info mb-4" href="?page=1">First</a>
-       <a class="btn btn-outline-info mb-4" href="?page={{ page.obj.previous.page.number }}">Previous</a>
-    {% endif %}
-
-    {% for num in page_obj.paginator.page_range %}
-
-      {% if page_obj.number == num %}
-       <a class="btn btn-info mb-4" href="?page={{ num }}">{{ num }}</a>
-      {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
-       <a class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a>
-      {% endif %}
-
-    {% endfor %}
-
-    {% if page_obj.has_next %}
-       <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
-       <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
-    {% endif %}
-
-    
-
-  {% endif %}
-
-</div>
-</body>
-
-</html>
 
 {% endblock content %} 
 
 
-<div></div><img class="scale-with-grid" src="{{ item.image.url }}"/>
