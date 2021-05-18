@@ -2,13 +2,9 @@
 
 {% block content %}
 
-    <form method="POST">
+<h1>hjkhkb</h1>
 
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type = "submit" name ="save" > Create New</button>
-        
-
-    </form>
+    {{ title }}
+   <img src= "{{ image_url }}"/>
 
 {% endblock content%}

@@ -11,7 +11,6 @@ class CategoryList(ListView):
 
     model = ItemCategories
     template_name = 'product/item_categories.html'
-    paginate_by =1
 
 class ItemDetail(DetailView):
     model = ItemDetail
@@ -21,6 +20,18 @@ class Item(DetailView):
     model = ItemCategories
     template_name = 'product/items.html'
     paginate_by =2
+
+def itemCategories(request):
+
+    context = { 
+    
+            'title' : "Men's western wear",
+            'image_url' : "https://images-na.ssl-images-amazon.com/images/G/31/img21/Fashion/Event/SS21Flip/PC_Changes/FinalspotlightScroll/mens_t_shirt._SY530_QL85_.png"
+        
+    }
+
+    return render(request,'product/items.html', context)
+
 
 
 def itemCreate(response):
