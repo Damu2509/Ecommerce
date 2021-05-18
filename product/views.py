@@ -23,11 +23,21 @@ class Item(DetailView):
 
 def itemCategories(request):
 
-    context = { 
+    context = { 'fashion':[
+         {
+        'title' : "Best Sellers",
+        'image_url' : "https://m.media-amazon.com/images/I/41TXCe7NGML._AC_SY200_.jpg"
+    },
+    {
     
-            'title' : "Men's western wear",
+            'title' : "Men's Wear",
             'image_url' : "https://images-na.ssl-images-amazon.com/images/G/31/img21/Fashion/Event/SS21Flip/PC_Changes/FinalspotlightScroll/mens_t_shirt._SY530_QL85_.png"
-        
+      },
+    {
+        'title' : "Women's Fashion",
+        'image_url' : "https://m.media-amazon.com/images/I/91Nfpvp1yhL._AC_UL320_.jpg"
+    },
+   ]
     }
 
     return render(request,'product/items.html', context)
