@@ -64,6 +64,9 @@ def itemCreate(response):
     
     
 def trial(request):
+
+      model = ItemCategories
+      template_name="product/sample.html"
     
       context = { 'fashion':[
          {
