@@ -25,8 +25,26 @@
     </div>
   </div>
 </div>
-
 {% endfor %}
+
+
+{% for i in ItemCategories_set.all %}
+ 
+ {{ i.category }} hii
+
+{% endfor%}
+
+{% for match in object_list %}
+    <div style="background-color:
+        {% ifchanged match.id %}
+            {% cycle "gray" "orange" %}
+        {% else %}
+            black
+        {% endifchanged %}
+    ">{{ match.category }}</div>
+{% endfor %}
+
+
 {% endblock content %}
 </body>
 </html>
