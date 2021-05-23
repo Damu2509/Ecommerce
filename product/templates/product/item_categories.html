@@ -1,5 +1,7 @@
-
 {% extends 'product/base.html' %}
+{% load static %}
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,6 +24,8 @@
       
       <a href="/{{ object.id}}/" > {{ object.category }}</a>
       <a href="/{{ object.id}}/" > {{ forloop.counter }}</a>
+      <img src="{{ object.image}}">
+
     </div>
   </div>
 </div>
@@ -50,3 +54,4 @@
 </html>
 
 
+<img src="{% static 'product/mine1.jpg' %}" alt = "This is not going to print anytime">
