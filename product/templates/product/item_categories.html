@@ -41,7 +41,7 @@
 {% for match in object_list %}
     <div style="background-color:
         {% ifchanged match.id %}
-            {% cycle "gray" "orange" %}
+            {% cycle 'gray' 'orange' %}
         {% else %}
             black
         {% endifchanged %}
