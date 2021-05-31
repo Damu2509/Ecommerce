@@ -1,8 +1,11 @@
 from django import forms
+from .models import ItemCategories
 
-class CreateNewList(forms.Form):
+class RegisterForm(forms.ModelForm):
+    
+    class Meta:
 
-    name = forms.CharField( max_length  = 100 )
-    check = forms.BooleanField( required = False ) 
+        model = ItemCategories
 
+        fields = ['category']
 
