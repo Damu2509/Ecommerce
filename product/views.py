@@ -91,19 +91,6 @@ def trial(request):
       return render(request, 'product/sample.html', context)
 
 
-def register(request):
-
-        form = RegisterForm(request.POST or None)
-
-        if form.is_valid():
-            form.save()
-            form = RegisterForm(request.POST or None)
-
-        context = {
-            'form':form
-        }
-
-        return render(request, 'product/register.html', context)
 
         
 

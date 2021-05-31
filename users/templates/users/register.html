@@ -1,0 +1,16 @@
+{% extends 'product/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <form method="POST">
+        {% csrf_token %}
+        Name : <input type='text' placeholder  = 'enter your name here' /><br>
+        Email : <input type='email' placeholder = 'example@gmail.com' /><br>
+        Phone No: <input type= 'integer' placeholder = 'enter your phone number here' /><br>
+
+        <input type='submit' value = "Save">
+
+    </form>
+
+{% endblock content %}
