@@ -17,7 +17,10 @@ class ItemDetail(models.Model):
   price = models.FloatField(default=00.00)
   discount = models.FloatField()
   image = models.ImageField(blank = True, null = True) 
+  
+  def __str__(self):
 
+    return self.title
 
 
 
