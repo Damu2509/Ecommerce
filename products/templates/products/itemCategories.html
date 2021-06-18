@@ -1,27 +1,33 @@
 
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 
-{% for item in object_list %}
 
-  <div class="container-fluid">
+<div class="grid grid-cols-3">
+ 
+  {% for item in object_list %}
 
-      <div class="row">
-        <div class="col-sm-4" style="background-color:lavender;">{{ item.category }}</div>
+    <div>
 
-          <div class="col-sm-4" style="background-color:lavender;">{{ item.title }}</div>
-          <div class="col-sm-4" style="background-color:lavenderblush;"><img src='{{item.image_url}}'></div>
-          <div class="col-sm-4" style="background-color:lavender;">Get out of my face</div>
-      </div>
-    
+      {{ item.category }}
+      {{ item.title }}
+      <img src="{{ item.image_url }} " width = 200 height = 200>
+      <h3>This os is awesome</h3>
+      <h4>this is ridiculous</h4><br>
+
+    </div>
+
+  {% endfor %}
+  
+</div>
+
+      
       
   </div>
-{% endfor %}
+
+
 
   {% block content %}
+
     <h3> These are the item categories in our site</h3>
 
   {% endblock content%}
