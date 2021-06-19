@@ -2,17 +2,16 @@
   <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 
 
-<div class="grid grid-cols-3">
+<div class="grid grid-cols-3 gap-4">
  
   {% for item in object_list %}
 
     <div>
 
-      {{ item.category }}
+      {{ item.category }}<br>
       {{ item.title }}
       <img src="{{ item.image_url }} " width = 200 height = 200>
-      <h3>This os is awesome</h3>
-      <h4>this is ridiculous</h4><br>
+      
 
     </div>
 
