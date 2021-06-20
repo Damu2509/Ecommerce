@@ -1,12 +1,35 @@
 {% extends 'products/base.html' %}
 
+{% block content %}
 
-{% for item in object_list %}
 
-  {{ item.title }}
-  {{ item.image_url }}
-  {{ item.tag }}
-  {{ item.description }}
-  {{ item.price }}
+    {% for item in items %}
 
-{% endfor %}
+    <div class = 'container'>
+
+
+        <div class='col'>
+            
+            <div class = 'row'> <img class='img-responsive' src="{{ item.image_url }}" > </div>
+
+        </div>
+        
+        <div class='col'>
+<div>
+                <div class='row'> <h2> {{ item.title }} </h2></div>
+                <div class='row'> <h3 style="color:green"> {{ item.tag }} </h3></div><br>   
+                <div class ='row' > <h1> {{ item.price }} </h1> </div> <br>
+                <div class = 'row'> <h4> {{ item.description }} </h4> </div>
+            </div>
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+
+
+{% endblock content %}
+
+ 
+

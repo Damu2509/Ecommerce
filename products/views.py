@@ -20,7 +20,11 @@ class items(ListView):
 
 def itemsAll(request):
 
-    return render(request, 'products/items.html', {})
+    itemsAll = Items.objects.all()
+
+    context = { 'items': itemsAll }
+
+    return render(request, 'products/items.html', context)
 
 
     
