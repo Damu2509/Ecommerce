@@ -1,0 +1,12 @@
+{% extends 'products/base.html' %}
+
+
+{% for item in object_list %}
+
+  {{ item.title }}
+  {{ item.image_url }}
+  {{ item.tag }}
+  {{ item.description }}
+  {{ item.price }}
+
+{% endfor %}

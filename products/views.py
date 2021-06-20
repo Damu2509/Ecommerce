@@ -13,4 +13,16 @@ class itemCategories(ListView):
     model = itemCategories
     template_name = 'products/itemCategories.html'
 
+class items(ListView):
 
+    model = Items
+    template_name = 'products/items.html'
+
+    
+
+def boot(request):
+    return render(request, 'products/bootbase.html',{})
+
+
+def boot1(request):
+    return render(request, 'products/bootinherit.html',{})
