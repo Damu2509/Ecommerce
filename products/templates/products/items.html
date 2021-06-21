@@ -5,25 +5,24 @@
 
     {% for item in items %}
 
-    <div class = 'container'>
+        <div class = 'container'>
 
 
-        <div class='col'>
-            
-            <div class = 'row'> <img class='img-responsive' src="{{ item.image_url }}" > </div>
+            <div class='row'>
+                
+                <div class = 'col'> <img class='img-responsive' src="{{ item.image_url }}" > </div>
 
-        </div>
-        
-        <div class='col'>
-<div>
-                <div class='row'> <h2> {{ item.title }} </h2></div>
-                <div class='row'> <h3 style="color:green"> {{ item.tag }} </h3></div><br>   
-                <div class ='row' > <h1> {{ item.price }} </h1> </div> <br>
-                <div class = 'row'> <h4> {{ item.description }} </h4> </div>
+                <div class='col'>
+                    
+                    <div class='row'> <h2> {{ item.title }} </h2></div>
+                    <div class='row'> <h3 style="color:green"> {{ item.tag }} </h3></div><br>   
+                    <div class ='row' > <h1> {{ item.price }} </h1> </div> <br>
+                    <div class = 'row'> <h4> {{ item.description }} </h4> </div>
+
+                </div>
+
             </div>
         </div>
-
-    </div>
 
     {% endfor %}
 

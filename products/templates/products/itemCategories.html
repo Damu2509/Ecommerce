@@ -10,9 +10,9 @@
 
     {% for item in object_list %}
 
-        <div>
+        <div><a href="#">
           <div class="col">{{ item.category }}</div>
-          <div class="col"><img src="{{ item.image_url }} " width = 200 height = 200></div>   
+          <div class="col"><img src="{{ item.image_url }} " width = 200 height = 200></div> </a>
         </div>
 
     {% endfor %}
